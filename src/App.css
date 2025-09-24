@@ -1,0 +1,22 @@
+/**
+ * App.css - Global styles for the App component.
+ *
+ * This file contains styles specific to the main App component.
+ * Note: Most styling is handled by styled-components for theme support,
+ * so this file contains minimal global styles.
+ */
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
