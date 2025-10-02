@@ -20,7 +20,7 @@ import { useTheme } from '../hooks/useTheme';
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 1rem 2rem;
   background-color: ${({ theme }) => theme.colors.background};
@@ -30,6 +30,18 @@ const Nav = styled.nav`
   top: 0;
   width: 100%;
   z-index: 1000;
+`;
+
+const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+`;
+
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
 
 const Logo = styled.div`
@@ -42,7 +54,7 @@ const NavLinks = styled.div`
   display: flex;
   gap: 2rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 760px) {
     display: none;
   }
 `;
@@ -50,7 +62,7 @@ const NavLinks = styled.div`
 const MobileMenu = styled.div`
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 760px) {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -133,20 +145,20 @@ const NavBar = memo(() => {
 
   return (
     <Nav>
-      {/* Brand logo */}
-      <Logo>N-Impress</Logo>
+      {/* Left section: Logo and navigation links */}
+      <LeftSection>
+        <Logo>N-Impress</Logo>
+        <NavLinks>
+          <StyledNavLink to="/" end>Home</StyledNavLink>
+          <StyledNavLink to="/products">Products</StyledNavLink>
+          <StyledNavLink to="/services">Services</StyledNavLink>
+          <StyledNavLink to="/about">About</StyledNavLink>
+          <StyledNavLink to="/contact">Contact</StyledNavLink>
+        </NavLinks>
+      </LeftSection>
 
-      {/* Desktop navigation links */}
-      <NavLinks>
-        <StyledNavLink to="/" end>Home</StyledNavLink>
-        <StyledNavLink to="/products">Products</StyledNavLink>
-        <StyledNavLink to="/services">Services</StyledNavLink>
-        <StyledNavLink to="/about">About</StyledNavLink>
-        <StyledNavLink to="/contact">Contact</StyledNavLink>
-      </NavLinks>
-
-      {/* Theme toggle and mobile menu button */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+      {/* Right section: Theme toggle and mobile menu button */}
+      <RightSection>
         <ThemeToggle onClick={toggleTheme}>
           {/* Display sun emoji for light theme, moon for dark theme */}
           {theme === 'light' ? '☀️' : '🌙'}
@@ -154,7 +166,7 @@ const NavBar = memo(() => {
         <Hamburger onClick={toggleMenu}>
           ☰
         </Hamburger>
-      </div>
+      </RightSection>
 
       {/* Mobile menu overlay - conditionally rendered */}
       {isOpen && (
