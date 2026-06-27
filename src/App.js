@@ -13,7 +13,7 @@
  * - Routing for Home, Products, Services, About Us, and Contact pages
  */
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import { ThemeProvider } from './contexts/ThemeContext';
 import NavBar from './components/NavBar';
 import './App.css';

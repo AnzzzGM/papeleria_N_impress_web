@@ -14,7 +14,7 @@
  * - Smooth transitions and hover effects
  */
 import React, { useState, memo } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 import styled from 'styled-components';
 import { useTheme } from '../hooks/useTheme';
 import { mediaQueries } from '../styles/breakpoints';

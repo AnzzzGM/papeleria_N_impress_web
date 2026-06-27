@@ -22,8 +22,12 @@ import { lightTheme, darkTheme } from '../styles/themes';
 /**
  * ThemeContext - React Context for theme state.
  * Provides theme value ('light' or 'dark') and toggleTheme function.
+ * Default value ensures theme is never undefined.
  */
-export const ThemeContext = createContext();
+export const ThemeContext = createContext({
+  theme: 'light',
+  toggleTheme: () => {},
+});
 
 /**
  * ThemeProvider component.
@@ -48,15 +52,23 @@ export const ThemeContext = createContext();
  */
 export const ThemeProvider = ({ children }) => {
   const getInitialTheme = () => {
-    const stored = localStorage.getItem('theme');
-    if (stored) return stored;
-    if (typeof window !== 'undefined' && window.matchMedia) {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    try {
+      const stored = localStorage.getItem('theme');
+      if (stored) return stored;
+      if (typeof window !== 'undefined' && window.matchMedia && typeof window.matchMedia === 'function') {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        if (mediaQuery && typeof mediaQuery.matches === 'boolean') {
+          return mediaQuery.matches ? 'dark' : 'light';
+        }
+      }
+    } catch (e) {
+      // Fallback for test environments or SSR
+      console.warn('Theme initialization failed, using light theme:', e);
     }
     return 'light';
   };
 
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [theme, setTheme] = useState(() => getInitialTheme());
 
   const currentTheme = theme === 'light' ? lightTheme : darkTheme;
 
@@ -75,7 +87,7 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <StyledThemeProvider theme={currentTheme.colors}>
+      <StyledThemeProvider theme={currentTheme}>
         {children}
       </StyledThemeProvider>
     </ThemeContext.Provider>

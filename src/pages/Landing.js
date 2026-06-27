@@ -13,7 +13,7 @@
  * - Theme-aware styling using styled-components
  */
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import styled from 'styled-components';
 import { mediaQueries } from '../styles/breakpoints';
 
