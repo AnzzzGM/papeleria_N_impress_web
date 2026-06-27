@@ -17,6 +17,7 @@ import React, { useState, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTheme } from '../hooks/useTheme';
+import { mediaQueries } from '../styles/breakpoints';
 
 const Nav = styled.nav`
   display: flex;
@@ -54,7 +55,7 @@ const NavLinks = styled.div`
   display: flex;
   gap: 2rem;
 
-  @media (max-width: 760px) {
+  @media ${mediaQueries.mobile} {
     display: none;
   }
 `;
@@ -62,7 +63,7 @@ const NavLinks = styled.div`
 const MobileMenu = styled.div`
   display: none;
 
-  @media (max-width: 760px) {
+  @media ${mediaQueries.mobile} {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -71,7 +72,7 @@ const MobileMenu = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.colors.background};
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px ${({ theme }) => theme.colors.overlay};
   }
 `;
 
@@ -111,7 +112,7 @@ const Hamburger = styled.button`
   cursor: pointer;
   color: ${({ theme }) => theme.colors.text};
 
-  @media (max-width: 768px) {
+  @media ${mediaQueries.mobile} {
     display: block;
   }
 `;
