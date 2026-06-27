@@ -14,6 +14,7 @@
  */
 import React, { memo } from 'react';
 import styled from 'styled-components';
+import { mediaQueries } from '../styles/breakpoints';
 
 const Container = styled.div`
   max-width: 1200px;
@@ -44,7 +45,7 @@ const Header = styled.header`
     margin: 0 auto;
   }
 
-  @media (max-width: 768px) {
+  @media ${mediaQueries.mobile} {
     padding: 30px 20px;
     h1 {
       font-size: 2rem;
@@ -61,11 +62,11 @@ const ProductsGrid = styled.div`
   gap: 30px;
   margin-bottom: 50px;
 
-  @media (max-width: 1024px) {
+  @media ${mediaQueries.tablet} {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 768px) {
+  @media ${mediaQueries.mobile} {
     grid-template-columns: 1fr;
   }
 `;

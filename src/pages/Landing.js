@@ -15,6 +15,7 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { mediaQueries } from '../styles/breakpoints';
 
 const Container = styled.div`
   max-width: 1200px;
@@ -48,7 +49,7 @@ const HeroSection = styled.section`
     max-width: 600px;
   }
 
-  @media (max-width: 768px) {
+  @media ${mediaQueries.mobile} {
     padding: 60px 20px;
     h1 {
       font-size: 2rem;
@@ -108,7 +109,7 @@ const FeaturedSection = styled.section`
     }
   }
 
-  @media (max-width: 768px) {
+  @media ${mediaQueries.mobile} {
     h2 {
       font-size: 2rem;
     }
@@ -152,7 +153,7 @@ const CTASection = styled.section`
     }
   }
 
-  @media (max-width: 768px) {
+  @media ${mediaQueries.mobile} {
     .cta-buttons {
       flex-direction: column;
       align-items: center;
