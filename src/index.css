@@ -2,9 +2,45 @@
  * index.css - Global styles for the application.
  *
  * This file contains base styles that apply to the entire application.
- * It sets up the default font stack, removes body margins, and provides
- * font smoothing for better text rendering across different browsers.
+ * It uses CSS custom properties (variables) for theming support,
+ * which are injected by ThemeProvider based on the current theme.
  */
+
+:root {
+  --color-primary: #1B3A4B;
+  --color-primary-hover: #142d3d;
+  --color-secondary: #8B6914;
+  --color-accent: #C0392B;
+  --color-background: #FDFBF7;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #4A4A6A;
+  --color-border: #D0CCC8;
+  --color-focus: #1B3A4B;
+  --color-success: #27AE60;
+  --color-error: #C0392B;
+}
+
+[data-theme="dark"] {
+  --color-primary: #4A90D9;
+  --color-primary-hover: #6BA3E0;
+  --color-secondary: #D4A843;
+  --color-accent: #E74C3C;
+  --color-background: #1A1A2E;
+  --color-surface: #24243E;
+  --color-text-primary: #F0F0F5;
+  --color-text-secondary: #A0A0B8;
+  --color-border: #3A3A5A;
+  --color-focus: #4A90D9;
+  --color-success: #2ECC71;
+  --color-error: #E74C3C;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 body {
   margin: 0;
@@ -13,9 +49,100 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 1rem;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: var(--color-background);
+  transition: background-color 0.3s ease;
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
