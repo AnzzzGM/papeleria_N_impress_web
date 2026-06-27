@@ -1,6 +1,6 @@
 {
   "name": "papeleria_n_impress_web",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Este es un proyecto web sencillo para mostrar productos y la marca N-impress.",
   "scripts": {
     "start": "react-scripts start",
