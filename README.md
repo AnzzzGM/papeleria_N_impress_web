@@ -1,4 +1,4 @@
-# Sitio web de papelería N-Impress
+# Sitio web de Papelería N-Impress
 
 Una aplicación web React moderna y responsiva para N-Impress Stationery, que muestra productos y servicios de papelería de primera calidad con un enfoque en la creatividad y la productividad.
 
