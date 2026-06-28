@@ -41,7 +41,7 @@ Una aplicación web React moderna y responsiva para N-Impress Stationery, que mu
 
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/your-username/papeleria-n-impress-web.git
+   git clone https://github.com/AnzzzGM/papeleria_N_impress_web.git
    cd papeleria-n-impress-web
    ```
 
