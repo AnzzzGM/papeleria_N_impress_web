@@ -214,8 +214,8 @@ const Landing = memo(() => {
     <Container>
       {/* Hero section with brand introduction */}
       <HeroSection>
-        <h1>Welcome to N-Impress Stationery</h1>
-        <p>Discover a world of creativity and organization with our premium stationery collection. From elegant notebooks to essential office supplies, we have everything you need to express your ideas and stay productive.</p>
+        <h1>Bienvenidos a Papeleria N-Impress</h1>
+        <p>Descubre un mundo de creatividad y organización con nuestra colección de artículos de papelería de alta gama. Desde elegantes cuadernos hasta material de oficina imprescindible, tenemos todo lo que necesitas para expresar tus ideas y mantener tu productividad.</p>
       </HeroSection>
 
       {/* Featured products section */}
@@ -234,10 +234,10 @@ const Landing = memo(() => {
 
       {/* Call-to-action section */}
       <CTASection>
-        <h2>Ready to Shop?</h2>
+        <h2>Listo para comprar?</h2>
         <div className="cta-buttons">
-          <Link to="/products" className="cta-button">Explore Products</Link>
-          <Link to="/contact" className="cta-button">Contact Us</Link>
+          <Link to="/products" className="cta-button">Explora Productos</Link>
+          <Link to="/contact" className="cta-button">Contactanos</Link>
         </div>
       </CTASection>
     </Container>
